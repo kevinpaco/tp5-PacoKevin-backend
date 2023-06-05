@@ -2,7 +2,12 @@ const Producto = require('../models/Producto');
 const productoController = {}
 
 productoController.getProductos = async (req,res)=>{
-    var productos = await Producto.find();
+    var destacado = null;
+    if (req.query.destacado != null){
+         destacado = req.query.destacado
+        var productos = await Producto.find({destacado:destacado});
+    }else{
+      var productos = await Producto.find();}
     res.json(productos);
 }
 
