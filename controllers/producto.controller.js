@@ -1,6 +1,11 @@
 const Producto = require('../models/Producto');
 const productoController = {}
 
+/**
+ * @param {*} req 
+ * @param {*} res 
+ * Retorna todos los Productos
+ */
 productoController.getProductos = async (req,res)=>{
     var destacado = null;
     if (req.query.destacado != null){
@@ -11,6 +16,11 @@ productoController.getProductos = async (req,res)=>{
     res.json(productos);
 }
 
+/**
+ * @param {*} req 
+ * @param {*} res 
+ * Guarda el Producto
+ */
 productoController.saveProducto = async (req,res)=>{
    var producto = new Producto(req.body)
     try {
@@ -27,11 +37,21 @@ productoController.saveProducto = async (req,res)=>{
     }
 }
 
+/**
+ * @param {*} req 
+ * @param {*} res
+ * Retorna un solo Producto segun si ID 
+ */
 productoController.getProducto= async (req,res)=>{
     var producto = await Producto.findById(req.params.id);
     res.json(producto);
 }
 
+/**
+ * @param {*} req 
+ * @param {*} res 
+ * Actualiza un Producto
+ */
 productoController.editProducto = async (req,res)=>{
     const producto = new Producto(req.body);
     try {
@@ -48,6 +68,11 @@ productoController.editProducto = async (req,res)=>{
     }
 }
 
+/**
+ * @param {*} req 
+ * @param {*} res
+ * Elimina un Producto 
+ */
 productoController.deleteProducto = async (req,res)=>{
     try {
          await Producto.deleteOne({_id: req.params.id});
