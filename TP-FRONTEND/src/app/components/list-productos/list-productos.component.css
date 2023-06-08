@@ -1,0 +1,12 @@
+#carouselExampleIndicators{
+    margin-left: 200px;
+    margin-right: 200px;
+    background-color: rgb(16, 16, 153);
+   
+}
+
+.container-fluid{
+    padding-top: 20px;
+    background-color: rgb(46, 44, 44);
+    padding-bottom: 20px;
+}
