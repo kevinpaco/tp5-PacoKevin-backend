@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 import { Producto } from 'src/app/models/producto.model';
 import { ProductoService } from 'src/app/services/producto.service';
 
@@ -7,12 +7,16 @@ import { ProductoService } from 'src/app/services/producto.service';
   templateUrl: './list-productos.component.html',
   styleUrls: ['./list-productos.component.css']
 })
-export class ListProductosComponent {
+export class ListProductosComponent implements OnInit {
 
   productos:Array<Producto>;
   recorridoCarrusel:number=0;
   constructor(private prodService:ProductoService){
     this.productos=new Array<Producto>();
+  }
+
+  ngOnInit(): void {
+      this.getProductos()
   }
 
   getProductos(){
@@ -32,7 +36,7 @@ export class ListProductosComponent {
     )
   }
 
-  ProductoSiguiente() {
+  productoSiguiente() {
     if (this.recorridoCarrusel === this.productos.length - 1) {
       this.recorridoCarrusel = 0; // Vuelve al primer producto cuando llega al último
     } else {
@@ -40,7 +44,7 @@ export class ListProductosComponent {
     }
   }
 
-  ProductoAnterior() {
+  productoAnterior() {
     if (this.recorridoCarrusel === 0) {
       this.recorridoCarrusel = this.productos.length - 1; // Retrocede al último producto cuando está en el primero
     } else {
