@@ -10,7 +10,7 @@ import { ProductoService } from 'src/app/services/producto.service';
 export class FormProductosComponent {
     
   producto:Producto;
-
+  guardado:string="";
   constructor(private prodService:ProductoService){
     this.producto=new Producto();
     this.producto.destacado=false;
@@ -23,13 +23,20 @@ export class FormProductosComponent {
         
     this.prodService.postProducto(this.producto)
     .subscribe(
-      res=>{
+      (res:any)=>{
+        this.guardado=res.msg;
         console.log(res)
       },
       err=>{
         console.log(err)
       }
     )
+    alert(this.guardado);
+    this.limpiarCampos();
+  }
+
+  limpiarCampos(){
+     this.producto=new Producto();
   }
 
   
