@@ -1,0 +1,52 @@
+.container-fluid{
+    padding-top: 25px;
+    background-color: rgb(46, 44, 44);
+    padding-bottom: 30px;
+}
+.form{
+    border: 2px solid black;
+    background-image: linear-gradient(to right, blue 20%, red);
+    box-shadow: 0 0 40px rgba(247, 7, 7, 0.818);
+    border-radius: 9px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.form:hover{
+    border: 2px solid black;
+    background-image: linear-gradient(to right, blue 20%, red);
+    box-shadow: 0 0 40px rgba(51, 7, 247, 0.818);
+    border-radius: 9px;
+    padding-bottom: 5px;
+    font-weight: bold;
+    padding-left: 8px;
+    padding-right: 8px;
+}
+.titulo{
+    text-align: center;
+    font-size:xx-large;
+}
+
+.tick{
+    float: right;
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+@keyframes parpadeo {
+    0%, 100% {
+      background-color: red;
+    }
+    50% {
+      background-color: blue;
+    }
+  }
+  .parpadeo {
+    animation: parpadeo 0.500s infinite;
+    transition: background-color 0.5s ease-in-out;
+    height:min-content;
+    width: 270px;
+    color:white;
+    
+  }

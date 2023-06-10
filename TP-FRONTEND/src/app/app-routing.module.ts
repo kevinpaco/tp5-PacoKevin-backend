@@ -13,7 +13,7 @@ const routes: Routes = [
   {path:"form-transaccion",component:FormTransaccionComponent},
   {path:"transacciones",component:ListTransaccionComponent},
   {path:"tickets",component:ListTicketsComponent},
-  {path:"form-ticket",component:FormTicketsComponent}
+  {path:"form-ticket/:id",component:FormTicketsComponent}
 ];
 
 @NgModule({

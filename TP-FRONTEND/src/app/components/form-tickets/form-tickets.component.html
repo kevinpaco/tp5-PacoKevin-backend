@@ -1,1 +1,56 @@
-<p>form-tickets works!</p>
+<div class="container-fluid">
+<div class="row">
+<fieldset class="form col-10 offset-1 col-sm-7 offset-sm-2 col-md-5 offset-md-3">
+    <legend class="titulo"><b>{{titulo}}</b></legend>
+<form #formE="ngForm" class="formulrio">
+    <div class="form-group">
+        <label for="dni" class="form-label">Seleccione Dni Cliente:</label>
+        <input *ngIf="titulo=='Modificar Ticket'" type="text" class="tick" value="{{ticket.espectador.dni}}" disabled>
+        <select type="number" class="form-select" id="dni" name="dni" (change)="addEspectador($event)">
+            <option value="" selected hidden>Seleccione una opción</option>
+            <option *ngFor="let esp of espectadores" [value]="esp._id">{{esp.dni}} ( {{esp.email}} )</option>
+        </select>
+        <div *ngIf="vacioId==false" class="alert alert-danger" >
+            <div>
+                Debe seleccionar un Cliente
+          </div>
+        </div>
+    </div>
+    <div class="form-group">
+        <label for="esp" class="form-label">Categoria de Espectador: </label>
+        <input *ngIf="titulo=='Modificar Ticket'" type="text" class="tick" value="{{ticket.categoriaEspectador}}" disabled>
+        <select class="form-select" (change)="cambio($event)"><!--*ngIf="ticket.precioTicket != null;else desabilitado"  -->  
+            <option value="Local">Local</option>
+            <option value="Extranjero">Extranjero</option>
+        </select>
+        </div>
+<div class="form-group">
+<label for="precioR" class="form-label">Precio Ticket: </label>
+<input *ngIf="titulo=='Modificar Ticket'" type="text" class="tick" value="{{ticket.precioTicket}}" disabled>
+<input type="number" class="form-control" id="precioR" name="precioR" placeholder=" Precio Real" (change)="cambio($event)" [(ngModel)]="precio">
+<!--<div *ngIf="precioR.invalid && (precioR.dirty || precioR.touched)" class="alert alert-danger" >
+    <div *ngIf="precioR.errors?.['required']">
+        Debe ingresar Precio Real
+  </div>
+</div>-->
+</div>
+<div class="form-group">
+<label for="cobro" class="form-label">Fecha de Cobro: </label>
+<input *ngIf="titulo=='Modificar Ticket'" type="text" class="tick" value="{{ticket.fechaCompra}}" disabled>
+<input type="date" class="form-control" id="dni" name="dni" [value]="fechaActual()" [disabled]="true">
+</div>
+<div class="form-group" *ngIf="tipo ;else bacio">
+<label for="total" class="form-label">Total: </label>
+<input type="number" class="form-control" id="total" name="total" [value]="ticket.precioTicket" [disabled]="true"><!--[value]="ticket.precioTicket"-->
+</div>
+<ng-template #bacio></ng-template>
+<br> 
+<button type="submit" class="btn btn-info" [disabled]="formE.invalid" (click)="guardar(operacion)">{{operacion}}</button>
+<button *ngIf="titulo=='Modificar Ticket'" class="btn btn-danger"  routerLink="/form-ticket/0">Cancelar</button>
+</form>
+</fieldset>
+<div *ngIf="mensaje!=''" class="parpadeo col-3 offset-1">
+     <h5>{{mensaje}}</h5>
+</div>
+</div>
+</div>
