@@ -5,6 +5,7 @@ const express = require('express');
 const route = express.Router();
 
 route.get("/",ticketCtl.getTickets);
+route.get("/:id",ticketCtl.getTicket);
 route.post("/",ticketCtl.postTicket);
 route.put("/:id",ticketCtl.putTicket);
 route.delete("/:id",ticketCtl.deleteTicket);

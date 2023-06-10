@@ -18,6 +18,11 @@ ticketCtl.getTickets = async (req,res)=>{
     res.json(tickets);
 }
 
+ticketCtl.getTicket = async (req,res)=>{
+        var ticket = await Ticket.findById(req.params.id);
+    res.json(ticket);
+}
+
 /**
  * @param {*} req 
  * @param {*} res 
