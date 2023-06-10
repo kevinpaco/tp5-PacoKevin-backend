@@ -1,0 +1,37 @@
+.container-fluid{
+    background-image: url("../../../assets/image/divisas.jpg");
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-bottom: 7%;
+       
+}
+.informacion{
+    background-color:rgb(158, 218, 99);
+    border: 3px solid black;
+    margin-right: 1%;
+
+}
+.table{
+    border: 2px solid blue;
+   border-radius: 3px;
+}
+ .tituloTabla{
+    background-color: dodgerblue;
+    text-align: center;
+    color:white;
+} 
+.conversor{
+    background-color: rgb(52, 52, 192);
+    border: 3px solid rgb(228, 205, 205);
+    color:white;
+    border-radius: 3%;
+}
+.tituloForm{
+    background-color: rgb(12, 12, 105);
+    text-align: center;
+}
+
+form .boton{
+    background-color: darkorange;
+}
+

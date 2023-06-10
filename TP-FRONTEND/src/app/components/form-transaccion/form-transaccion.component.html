@@ -1,0 +1,90 @@
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-md-7 d-none d-md-block informacion">
+          <h4 class="tituloTabla">Conversor de Divisas</h4>  
+          <div class="row">
+          <table class="col-2 table table-hover">             
+                <thead>
+                  <tr>
+                    <th scope="col"></th>
+                    <th scope="col">USD</th>
+                    <th scope="col">EUR</th>
+                    <th scope="col">GBP</th>
+                    <th scope="col">BTC</th>
+                    <th scope="col">ARG</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <th scope="row">USD <br>inverce</th>
+                    <td>100000<br>100000</td>
+                    <td>0.385473<br>3.847561</td>
+                    <td>3.375485<br>2.483475</td>
+                    <td>1.381924<br>4.837294</td>
+                    <td>5.394583<br>5.394821</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">EUR <br>inverce</th>
+                    <td>0.385473<br>3.847561</td>
+                    <td>8.543234<br>7.434329</td>
+                    <td>1.381924<br>4.837294</td>
+                    <td>4.234223<br>5.423422</td>
+                    <td>1.435234<br>8.546321</td>
+                  </tr>
+                  <tr>
+                    <th scope="row">GBP <br>inverce</th>
+                    <td >100000<br>100000</td>
+                    <td>1.435234<br>8.546321</td>
+                    <td>4.234223<br>5.423422</td>
+                    <td>0.385473<br>3.847561</td>
+                    <td>1.381924<br>4.837294</td>                    
+                  </tr>
+                  <tr>
+                    <th scope="row">RUB <br>inverce</th>
+                    <td>100000<br>100000</td>
+                    <td>0.385473<br>3.847561</td>
+                    <td>1.381924<br>4.837294</td>
+                    <td>1.435234<br>8.546321</td>
+                    <td>4.234223<br>5.423422</td>
+                  </tr>
+                </tbody>
+              </table>
+          </div>
+        </div>
+        <div class="col-md-4 col-12 conversor">
+          <h3 class="tituloForm">Conversor de Divisas</h3>
+          <form #form="ngForm" class="form" action="">
+              <div class="form-group">
+              <label for="cantidad">Cantidad</label>
+              <input class="form-control" type="number" name="cantidad" id="cantidad" placeholder="cantidad" [(ngModel)]="operador">
+              </div>
+              <div class="form-group">
+                <label for="de">De</label>
+                <select class="form-select" name="de" id="de" (change)="tipo($event)">
+                  <option *ngFor="let moneda of monedas" value="{{moneda.simbolo}}">{{moneda.nombre}}</option>
+             </select>
+                </div>
+                <div class="form-group">
+                  <label for="a">A</label>
+                  <select class="form-select" name="a" id="a" (change)="tipo2($event)">                     
+                       <option *ngFor="let moneda of monedas" value="{{moneda.simbolo}}">{{moneda.nombre}}</option>
+                  </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="email">Email</label>
+                    <input class="form-control" type="email" name="email" id="email" placeholder="ingrese email" [(ngModel)]="transaccion.emailCliente" required #email="ngModel">
+                    <div *ngIf="email.invalid && (email.dirty || email.touched)">
+                      <div *ngIf="email.errors?.['required']" class="alert alert-danger">
+                           Debe ingresar Email
+                      </div>
+                      </div>
+                    </div>
+                 
+                  <label for="result">Resultado: </label>
+                  <div class="form-control" name="result" id="result">{{resultado | currency}}</div> 
+                  <br>
+                   <button class="btn col-12 boton" (click)="convertir()" [disabled]="form.invalid">Convertir <i class="bi bi-arrow-right"></i></button>
+                </form>
+        </div>
+    </div>
+  </div>

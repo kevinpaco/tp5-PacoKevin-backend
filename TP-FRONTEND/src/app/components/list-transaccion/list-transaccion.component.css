@@ -1,0 +1,24 @@
+.container-fluid{
+    background-image: url("../../../assets/image/divisas.jpg");
+    background-repeat: no-repeat;
+    background-size: 120%;
+    padding-top: 5%;
+    padding-left: 5%;
+    padding-bottom: 7%;
+}
+
+.form{
+    background-color: blue;
+    color:white;
+    border-radius: 5%;
+    height: 300px;
+}
+
+.form h3{
+    text-align: center;
+    font-family:'Courier New', Courier, monospace
+}
+
+#filtro{
+    margin-right: 8px;
+}
