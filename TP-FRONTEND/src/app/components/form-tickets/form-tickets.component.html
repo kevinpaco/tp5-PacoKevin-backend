@@ -28,11 +28,11 @@
 <label for="precioR" class="form-label">Precio Ticket: </label>
 <input *ngIf="titulo=='Modificar Ticket'" type="text" class="tick" value="{{ticket.precioTicket}}" disabled>
 <input type="number" class="form-control" id="precioR" name="precioR" placeholder=" Precio Real" (change)="cambio($event)" [(ngModel)]="precio">
-<!--<div *ngIf="precioR.invalid && (precioR.dirty || precioR.touched)" class="alert alert-danger" >
-    <div *ngIf="precioR.errors?.['required']">
-        Debe ingresar Precio Real
+<div *ngIf="vacioCat==false" class="alert alert-danger" >
+    <div>
+        Debe seleccionar un Cliente
   </div>
-</div>-->
+</div>
 </div>
 <div class="form-group">
 <label for="cobro" class="form-label">Fecha de Cobro: </label>
@@ -49,7 +49,7 @@
 <button *ngIf="titulo=='Modificar Ticket'" class="btn btn-danger"  routerLink="/form-ticket/0">Cancelar</button>
 </form>
 </fieldset>
-<div *ngIf="mensaje!=''" class="parpadeo col-3 offset-1">
+<div *ngIf="mensaje!=''"  class="parpadeo col-3 offset-1">
      <h5>{{mensaje}}</h5>
 </div>
 </div>
