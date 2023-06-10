@@ -44,7 +44,7 @@ export class FormTicketsComponent implements OnInit{
           let idE=this.ticket.espectador.toString();
            this.ticket.espectador= await this.findEspectador(idE)
            this.tipo=true;
-           this.operacion="Modificar";      
+           this.operacion="Modificar";       
         }
       }
      )
@@ -52,6 +52,9 @@ export class FormTicketsComponent implements OnInit{
    }
 
    guardar(operacion:string){
+     if(this.precio==undefined){
+      this.vacioCat=false;
+     }
     if (Object.keys(this.ticket.espectador).length == 0){
       this.vacioId=false;
     }else{
@@ -129,6 +132,7 @@ export class FormTicketsComponent implements OnInit{
         this.ticket.precioTicket=this.precio;
         this.ticket.categoriaEspectador="Extranjero";
      }
+     this.vacioCat=true
      if (this.precio != null){
          this.tipo=true;
      }
