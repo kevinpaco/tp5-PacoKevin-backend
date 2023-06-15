@@ -8,6 +8,7 @@ import { ListTicketsComponent } from './components/list-tickets/list-tickets.com
 import { FormTicketsComponent } from './components/form-tickets/form-tickets.component';
 
 const routes: Routes = [
+  {path:"",component:FormProductosComponent},
   {path:"productos", component : ListProductosComponent},
   {path:"form-producto",component:FormProductosComponent},
   {path:"form-transaccion",component:FormTransaccionComponent},
